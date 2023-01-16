@@ -41,8 +41,12 @@ ALLOWED_HOSTS = []
 # ]
 
 CUSTOM_APPS = [
-    "houses.apps.HousesConfig",
-    "users.apps.UsersConfig"
+    "users.apps.UsersConfig",
+    "rooms.apps.RoomsConfig",
+    "experiences.apps.ExperiencesConfig",
+    "categories.apps.CategoriesConfig",
+    "reviews.apps.ReviewsConfig",
+    "wishlists.apps.WishlistsConfig",    
 ]
 
 SYSTEM_APPS = [
