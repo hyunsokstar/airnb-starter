@@ -28,10 +28,7 @@ class RoomAdmin(admin.ModelAdmin):
     )
 
     list_filter = (
-        "rating",
-        "user__is_host",
-        "room__category",
-        "room__pet_friendly"
+        "owner__is_host",
     )
     
     search_fields = ("name", "price")
