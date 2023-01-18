@@ -56,7 +56,8 @@ class Room(CommonModel):
         print(self.amenities.all())
         return self.amenities.count()
 
-
+    def rating(room):
+        return room.reviews.count()
 
 # class Amenity(models.Model):
 class Amenity(CommonModel):
