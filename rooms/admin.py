@@ -3,9 +3,19 @@ from .models import Room, Amenity
 
 # Register your models here.
 
+@admin.action(description="Set all prices to zero")
+def reset_prices(model_admin, request, rooms):
+    actions = (reset_prices,)
+
+    for room in rooms.all():
+        room.price = 0
+        room.save()
 
 @admin.register(Room)
 class RoomAdmin(admin.ModelAdmin):
+
+    actions = (reset_prices,)
+
     list_display = (
         "name",
         "price",
@@ -18,17 +28,12 @@ class RoomAdmin(admin.ModelAdmin):
     )
 
     list_filter = (
-        "country",
-        "city",
-        "price",
-        "rooms",
-        "toilets",
-        "pet_friendly",
-        "kind",
-        "amenities",
-        "created_at",
-        "updated_at",
+        "rating",
+        "user__is_host",
+        "room__category",
+        "room__pet_friendly"
     )
+    
     search_fields = ("name", "price")
 
 
