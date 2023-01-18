@@ -27,10 +27,8 @@ class Review(CommonModel):
         on_delete=models.CASCADE,
         related_name="reviews",
     )
-
     payload = models.TextField()   # 리뷰 텍스트
     rating = models.PositiveIntegerField()  # 리뷰 평점
 
     def __str__(self) -> str:
         return f"{self.user} / {self.rating}"
-
